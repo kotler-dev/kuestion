@@ -1,6 +1,7 @@
 
 rootProject.name = "kuestion"
 include("m1l1-hello")
+include("m1l2-basic")
 
 pluginManagement {
     val kotlinVersion: String by settings
@@ -9,3 +10,4 @@ pluginManagement {
 //        application apply false
     }
 }
+include("m1l2-basic")
