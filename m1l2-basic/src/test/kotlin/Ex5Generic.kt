@@ -69,4 +69,13 @@ class Ex5Generic {
         willCompile(1.0)
         willCompile("1")
     }
+
+    @Test
+    fun testExceptionInLambda() {
+        try {
+            { throw RuntimeException("Lambda") }()
+        } catch (e: Exception) {
+            println("Caught: $e")
+        }
+    }
 }
