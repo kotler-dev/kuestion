@@ -1,6 +1,5 @@
 import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class Ex3Strings {
 
@@ -23,7 +22,7 @@ class Ex3Strings {
     }
 
     fun f(): String {
-        for (i in 1 .. 3)
+        for (i in 1..3)
             println(i)
         return "hello"
     }
@@ -32,14 +31,14 @@ class Ex3Strings {
     fun templates() {
         val a = 1
         val b = 2
-        val string = "$a + $b = ${a+b}"
+        val string = "$a + $b = ${a + b}"
         assertEquals("1 + 2 = 3", string)
 
         assertEquals("${"hello, $a"}", "hello, 1")
 
         // не стоит увлекаться :)
         val c = "${
-            when(a) {
+            when (a) {
                 1 -> f()
                 else -> "world"
             }
@@ -54,5 +53,29 @@ class Ex3Strings {
         if (a is String) {
             a.length
         }
+    }
+
+    private fun Any.getType(): Any {
+        return when (this) {
+            is Int -> Int
+            is String -> String
+            is Float -> Float
+            is Double -> Double
+            else -> {}
+        }
+    }
+
+    @Test
+    fun practiceEx3() {
+        val whatTypeIAm = 3
+        assertEquals(Int, whatTypeIAm.getType())
+
+        val correctType = 3.4
+        assertEquals(Double, correctType.getType())
+
+        val string = "Text"
+        assertEquals('x', string[2])
+
+        assertEquals(false, string.getType() == Double)
     }
 }
