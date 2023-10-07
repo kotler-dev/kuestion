@@ -12,9 +12,6 @@ annotation class SqlSelectMethod
 @DslMarker
 annotation class SqlContext
 
-@DslMarker
-annotation class SqlWhereMethod
-
 @SqlBuilderDsl
 open class SqlSelectBuilder {
     private var select: String = "*"
@@ -72,10 +69,6 @@ class AndContext : SqlWhereBuilder()
 @SqlBuilderDsl
 open class SqlWhereBuilder {
 
-    interface SqlExpression {
-        fun build(): String
-    }
-
     private val expressions = mutableListOf<String>()
 
     fun addExpression(expression: String) {
@@ -115,4 +108,5 @@ fun query(block: SqlSelectBuilder.() -> Unit): String {
     return SqlSelectBuilder().apply(block).build()
 }
 
+@Suppress("unused")
 class SqlDslBuilder {}

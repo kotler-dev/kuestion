@@ -31,6 +31,7 @@ class ActionsContext {
     operator fun Action.unaryPlus() = add(this)
 }
 
+@Suppress("unused")
 class AvailabilityContext {
     private val _availabilities = mutableSetOf<LocalDateTime>()
 

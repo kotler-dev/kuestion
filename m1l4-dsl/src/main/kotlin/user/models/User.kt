@@ -2,6 +2,7 @@ package user.models
 
 import java.time.LocalDateTime
 
+@Suppress("unused")
 enum class Action {
     CREATE,
     READ,
